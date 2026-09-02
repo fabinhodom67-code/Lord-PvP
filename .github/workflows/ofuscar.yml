@@ -1,0 +1,21 @@
+name: Ofuscar Script
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  obfuscate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Ofuscar
+        uses: javascript-obfuscator/javascript-obfuscator@v4
+        with:
+          filePath: ./meu_script.js  # ⚠️ MUDE AQUI
+      - name: Upload do ofuscado
+        uses: actions/upload-artifact@v4
+        with:
+          name: script-ofuscado
+          path: Lord PvP
